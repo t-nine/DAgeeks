@@ -1,0 +1,47 @@
+
+<%- include("partials/header"); -%>
+
+
+<div class="content">
+    <% posts.forEach(function(post){ %>
+ 
+      <h1 style="background-color:#1abc9c;position: sticky;text-align: center;font-family: Verdana, sans-serif;">
+        <%=post.title%>
+        &nbsp;
+        [<%=post.postoffer%>]
+      </h1>
+      <h4 style="background-color:lavender;font-family: Verdana, sans-serif;">
+        Difficulty level :
+        <%=post.difficulty%>
+      </h4>
+      <p style="background-color:lavenderblush;font-family: Verdana, sans-serif;">
+        Tags : [&nbsp;
+        <%post.topictags.forEach(function(topictag){%>
+            <%=topictag%>
+          &nbsp;
+          <%})%>]
+      </p>
+      <br>
+      <br>
+      <%- post.content %>
+      
+      <p>review: <%= post.review %></p>
+
+      <form action="/review" method="post">
+        <input style="display: none" type="text" value=<%=post._id%> name="Review_Id">
+        <input type="radio" id="star" value='1' checked="checked" name="Review_Star">
+        <label for="1star"> 1 </label>
+        <input type="radio" id="star" value='2' name="Review_Star">
+        <label for="2star"> 2 </label>
+        <input type="radio" id="star" value='3' name="Review_Star">
+        <label for="3star"> 3 </label>
+        <input type="radio" id="star" value='4' name="Review_Star">
+        <label for="4star"> 4 </label>
+        <input type="radio" id="star" value='5' name="Review_Star">
+        <label for="5star"> 5 </label>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <% }) %>
+  </div>
+
+<%- include("partials/footer"); -%>

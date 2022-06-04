@@ -1,0 +1,133 @@
+
+<%- include("partials/header"); -%>
+<script>
+  function Validate(){
+    console.log("hello");
+    let valid = false;
+    if(document.getElementById("array").checked) valid=true;
+    else if(document.getElementById("string").checked) valid=true;
+    else if(document.getElementById("hasing").checked) valid=true;
+    else if(document.getElementById("stack").checked) valid=true;
+    else if(document.getElementById("queue").checked) valid=true;
+    else if(document.getElementById("heap").checked) valid=true;
+    else if(document.getElementById("binarytree").checked) valid=true;
+    else if(document.getElementById("linkedlist").checked) valid=true;
+    else if(document.getElementById("dfs").checked) valid=true;
+    else if(document.getElementById("bfs").checked) valid=true;
+    else if(document.getElementById("maths").checked) valid=true;
+    else if(document.getElementById("dp").checked) valid=true;
+    else if(document.getElementById("binarysearch").checked) valid=true;
+    else if(document.getElementById("greedy").checked) valid=true;
+    else if(document.getElementById("searchingandsorting").checked) valid=true;
+    else if(document.getElementById("backtracking").checked) valid=true;
+    console.log(valid);
+    if(valid == true){
+      //alert("Validation Successful");
+      return true;
+    }
+    else{
+      document.getElementById("messages").innerHTML="* Please Select atleast one TopicTag:";
+      return false;
+    }
+    return false;
+  }
+
+</script>
+    <h1>Compose</h1>
+    <form class="" action="/compose" method="post" onsubmit=" return Validate()" autocomplete="off">
+      <div class="form-group">
+        <label>Company : </label>
+        <input class="form-control" type="text" name="title" required="required">
+        <br><br>
+        
+        <label>Summer Internship / Full time offer : </label>
+        <br>
+        <input type="radio" id="SummerInternship" name="postoffer" value ="SummerInternship" required="required">
+        <label for="SummerInternship">Summer Internship</label><br>
+        <input  type="radio" id="FullTime" name="postoffer" value ="FullTime" required="required">
+        <label for="FullTime">Full Time</label>
+        <br><br>
+        <label>Difficulty : </label>
+        <br>
+        <input type="radio" id="Easy" name="difficulty" value ="Easy" required="required">
+        <label for="Easy">Easy</label>
+        <br>
+        <input  type="radio" id="Medium" name="difficulty" value ="Medium" required="required">
+        <label for="Medium">Medium</label>
+        <br>
+        <input type="radio" id="Hard" name="difficulty" value ="Hard" required="required">
+        <label for="Hard">Hard</label>
+        <br><br>
+        
+        <label>Topic Tags : </label>
+        <br>
+        <input type="checkbox" id="array" name="topictags" value ="array">
+        <label for="array">Array</label>
+        &nbsp;
+        <input type="checkbox" id="string" name="topictags" value ="string">
+        <label for="string">String</label>
+        &nbsp;
+        <input type="checkbox" id="hasing" name="topictags" value ="hasing">
+        <label for="hasing">Hashing</label>
+        &nbsp;
+        <input type="checkbox" id="stack" name="topictags" value ="stack">
+        <label for="stack">Stack</label>
+        &nbsp;
+        <input type="checkbox" id="queue" name="topictags" value ="queue">
+        <label for="queue">Queue</label>
+        &nbsp;
+        <input type="checkbox" id="heap" name="topictags" value ="heap">
+        <label for="heap">Heap</label>
+        &nbsp;
+        <input type="checkbox" id="binarytree" name="topictags" value ="binarytree">
+        <label for="binarytree">Binary-Tree</label>
+        &nbsp;
+        <input type="checkbox" id="linkedlist" name="topictags" value ="linkedlist">
+        <label for="linkedlist">Linked-List</label>
+        &nbsp;
+        <input  type="checkbox" id="dfs" name="topictags" value ="dfs">
+        <label for="dfs">DFS</label>
+        &nbsp;
+        <input type="checkbox" id="bfs" name="topictags" value ="bfs">
+        <label for="bfs">BFS</label>
+        <br>
+        <input  type="checkbox" id="maths" name="topictags" value ="maths">
+        <label for="maths">Maths</label>
+        &nbsp;
+        <input type="checkbox" id="dp" name="topictags" value ="dp">
+        <label for="dp">DP</label>
+        &nbsp;
+        <input type="checkbox" id="binarysearch" name="topictags" value ="binarysearch">
+        <label for="binarysearch">Binary-Search</label>
+        &nbsp;
+        <input type="checkbox" id="greedy" name="topictags" value ="greedy">
+        <label for="greedy">Greedy</label>
+        &nbsp;
+        <input type="checkbox" id="searchingandsorting" name="topictags" value ="searchingandsorting">
+        <label for="searchingandsorting">Searching-And-Sorting</label>
+        &nbsp;
+        <input type="checkbox" id="backtracking" name="topictags" value ="backtracking">
+        <label for="backtracking">Backtracking</label>
+        &nbsp;
+        <div >
+          <p id="messages" style="color: red; font: size 20px;"></p>
+        </div>
+
+        <br>
+        
+        <label>Post : </label>
+        <textarea class="form-control" id="mytextarea" name="postBody" rows="5" cols="30" required="required">Hello world!
+
+        </textarea>
+      </div>
+      <button class="btn btn-primary" type="submit" name="button" id="submit" >Publish</button>
+      
+    </form>
+    <!-- <textarea name="" id="fr" cols="30" rows="10"></textarea> -->
+    <!-- <script>
+      document.getElementById("submit").onclick=function(){
+        var x=tinymce.get("mytextarea").getContent({format:"text"});
+        console.log(x);
+      }
+    </script> -->
+<%- include("partials/footer"); -%>

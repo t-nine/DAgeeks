@@ -1,0 +1,139 @@
+<%- include("partials/header"); -%>
+ 
+  <h1>Home</h1>
+  <p>
+    <%= startingContent %>
+  </p>
+  <div class="main">
+ 
+  <div class="page" class="fixed-top">
+    <form class="form-class" action="/" method="post" autocomplete="off">
+      <div class="form-group">
+        <label>Company : </label>
+        <input class="form-control" type="text" name="CompanyName">
+        <br><br>
+ 
+        <label>Summer Internship / Full time offer : </label>
+        <br>
+        <input type="radio" id="SummerInternship" name="postOffer" value="SummerInternship">
+        <label for="SummerInternship">Summer Internship</label><br>
+        <input type="radio" id="FullTime" name="postOffer" value="FullTime">
+        <label for="FullTime">Full Time</label>
+        <br><br>
+        <label>Difficulty : </label>
+        <br>
+        <input type="radio" id="Easy" name="postDifficulty" value="Easy">
+        <label for="Easy">Easy</label>
+        <br>
+        <input type="radio" id="Medium" name="postDifficulty" value="Medium">
+        <label for="Medium">Medium</label>
+        <br>
+        <input type="radio" id="Hard" name="postDifficulty" value="Hard">
+        <label for="Hard">Hard</label>
+        <br><br>
+ 
+        <label>Topic Tags : </label>
+        <br>
+        <input type="checkbox" id="array" name="topicTags2" value="array">
+        <label for="array">Array</label>
+        &nbsp;
+        <input type="checkbox" id="string" name="topicTags2" value="string">
+        <label for="string">String</label>
+        &nbsp;
+        <input type="checkbox" id="hasing" name="topicTags2" value="hashing">
+        <label for="hasing">Hashing</label>
+        &nbsp;
+        <input type="checkbox" id="stack" name="topicTags2" value="stack">
+        <label for="stack">Stack</label>
+        &nbsp;
+        <input type="checkbox" id="queue" name="topicTags2" value="queue">
+        <label for="queue">Queue</label>
+        &nbsp;
+        <input type="checkbox" id="heap" name="topicTags2" value="heap">
+        <label for="heap">Heap</label>
+        &nbsp;
+        <input type="checkbox" id="binarytree" name="topicTags2" value="binarytree">
+        <label for="binarytree">Binary-Tree</label>
+        &nbsp;
+        <input type="checkbox" id="linkedlist" name="topicTags2" value="linkedlist">
+        <label for="linkedlist">Linked-List</label>
+        &nbsp;
+        <input type="checkbox" id="dfs" name="topicTags2" value="dfs">
+        <label for="dfs">DFS</label>
+        &nbsp;
+        <input type="checkbox" id="bfs" name="topicTags2" value="bfs">
+        <label for="bfs">BFS</label>
+        <br>
+        <input type="checkbox" id="maths" name="topicTags2" value="maths">
+        <label for="maths">Maths</label>
+        &nbsp;
+        <input type="checkbox" id="dp" name="topicTags2" value="dp">
+        <label for="dp">DP</label>
+        &nbsp;
+        <input type="checkbox" id="binarysearch" name="topicTags2" value="binarysearch">
+        <label for="binarysearch">Binary-Search</label>
+        &nbsp;
+        <input type="checkbox" id="greedy" name="topicTags2" value="greedy">
+        <label for="greedy">Greedy</label>
+        &nbsp;
+        <input type="checkbox" id="searchingandsorting" name="topicTags2" value="searchingandsorting">
+        <label for="searchingandsorting">Searching-And-Sorting</label>
+        &nbsp;
+        <input type="checkbox" id="backtracking" name="topicTags2" value="backtracking">
+        <label for="backtracking">Backtracking</label>
+       
+        &nbsp;
+ 
+        <br>
+        <br>
+ 
+        </div>
+        <button class="btn btn-primary" type="submit" name="button">Publish</button>
+    </form>
+  </div>
+ 
+  <div class="content">
+    <% posts.forEach(function(post){ %>
+ 
+      <h1 style="background-color:#1abc9c;position: sticky;text-align: center;font-family: Verdana, sans-serif;">
+        <%=post.title%>
+        &nbsp;
+        [<%=post.postoffer%>]
+      </h1>
+      <h4 style="background-color:lavender;font-family: Verdana, sans-serif;">
+        Difficulty level :
+        <%=post.difficulty%>
+      </h4>
+      <p style="background-color:lavenderblush;font-family: Verdana, sans-serif;">
+        Tags : [&nbsp;
+        <%post.topictags.forEach(function(topictag){%>
+            <%=topictag%>
+          &nbsp;
+          <%})%>]
+      </p>
+      <br>
+      <br>
+      <%- post.content %>
+      
+      <p>review: <%= post.review %></p>
+
+      <form action="/review" method="post">
+        <input style="display: none" type="text" value=<%=post._id%> name="Review_Id">
+        <input type="radio" id="star" value='1' checked="checked" name="Review_Star">
+        <label for="1star"> 1 </label>
+        <input type="radio" id="star" value='2' name="Review_Star">
+        <label for="2star"> 2 </label>
+        <input type="radio" id="star" value='3' name="Review_Star">
+        <label for="3star"> 3 </label>
+        <input type="radio" id="star" value='4' name="Review_Star">
+        <label for="4star"> 4 </label>
+        <input type="radio" id="star" value='5' name="Review_Star">
+        <label for="5star"> 5 </label>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <% }) %>
+  </div>
+ 
+</div>
+ 
+  <%- include("partials/footer"); -%>
